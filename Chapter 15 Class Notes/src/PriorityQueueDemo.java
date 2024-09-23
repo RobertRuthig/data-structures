@@ -10,5 +10,7 @@ public class PriorityQueueDemo
 {
     public static void main(String[] args)
     {
+
+        Queue<WorkOrder> toDo = new PriorityQueue<>();
     }
 }

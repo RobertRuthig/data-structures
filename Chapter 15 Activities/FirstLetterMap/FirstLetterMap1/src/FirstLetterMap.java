@@ -18,7 +18,7 @@ public class FirstLetterMap
         {
 
             // Create your map here
-            Map<Character, HashSet<String>> words = new HashMap<Character, HashSet<String>>();
+            Map<Character, HashSet<String>> words = new HashMap<>();
 
             while (in.hasNext())
             {

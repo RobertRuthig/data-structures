@@ -22,14 +22,14 @@ public class FirstLetterMap
 
             while (in.hasNext())
             {
-                String word = clean(in.next());
-                if (!word.isEmpty()) {
-                    Character c = word.charAt(0);
+                String word = in.next();
+                
+                Character c = word.charAt(0);
 
-                    // Update the map here
-                    words.putIfAbsent(c, new TreeSet<>());
-                    words.get(c).add(word);
-                }
+                // Update the map here
+                words.putIfAbsent(c, new HashSet<>());
+                words.get(c).add(word);
+                
             }
 
             // Print the map here in this form

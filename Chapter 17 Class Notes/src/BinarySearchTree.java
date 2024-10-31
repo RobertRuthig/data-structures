@@ -78,6 +78,40 @@ public class BinarySearchTree
             
         }
     }
+
+    public int singleChildNodes(Node root)
+    {
+        int count = 0;
+        if(this.root == null)
+            return 0;
+        else
+        {
+            if(!((root.left == null && root.right == null) || (root.left != null && root.right != null)))
+            {
+               count ++; 
+            }
+            count += singleChildNodes(root.left);
+            count += singleChildNodes(root.right);
+        }
+        return count;
+    }
+
+    public int singleChildNodes()
+    {
+        int count = 0;
+        if(this.root == null)
+            return 0;
+        else
+        {
+            if(!((this.root.left == null && this.root.right == null) || (this.root.left != null && this.root.right != null)))
+            {
+               count ++; 
+            }
+            count += singleChildNodes(root.left);
+            count += singleChildNodes(root.right);
+        }
+        return count;
+    }
 }
 
 

@@ -22,6 +22,7 @@ public class TreeTester
       t.remove("D"); // Removing root
       t.print();
       System.out.println("Expected: C E G H I J");
+      System.out.printLn(t.singleChildNodes());
    }
 }
 

@@ -13,5 +13,11 @@ public class TreeDemo
       Tree t4 = new Tree("Savannah");
       t2.addSubtree(t4);
       System.out.println("Size: " + t1.size());
+      BinaryTree t5 = new BinaryTree("1");
+      BinaryTree t6 = new BinaryTree("1");
+      BinaryTree t7 = new BinaryTree("1",t5,t6);
+      BinaryTree t8 = new BinaryTree("1",t7, new BinaryTree());
+      BinaryTree t9 = new BinaryTree("1",t8, new BinaryTree());
+      System.out.println(t9.singleChildNodes());
    }
 }

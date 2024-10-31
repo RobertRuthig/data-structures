@@ -149,4 +149,39 @@ public class BinaryTree
         }
         return count;
     }
+
+    public int countLeaves(Node root)
+    {
+        int count = 0;
+
+        if((root.left == null && root.right == null))
+        {
+            count ++; 
+        }
+        if(root.left != null)
+            count += countLeaves(root.left);
+        if(root.right != null)
+            count += countLeaves(root.right);
+
+        return count;
+    }
+
+    public int countLeaves()
+    {
+        int count = 0;
+        if(this.root == null)
+            return 0;
+        else
+        {
+            if((this.root.left == null && this.root.right == null))
+            {
+               count ++;
+            }
+            if(this.root.left != null)
+                count += countLeaves(this.root.left);
+            if(this.root.right != null)
+                count += countLeaves(this.root.right);
+        }
+        return count;
+    }
 }

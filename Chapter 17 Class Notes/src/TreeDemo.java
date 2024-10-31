@@ -19,5 +19,6 @@ public class TreeDemo
       BinaryTree t8 = new BinaryTree("1",t7, new BinaryTree());
       BinaryTree t9 = new BinaryTree("1",t8, new BinaryTree());
       System.out.println(t9.singleChildNodes());
+      System.out.println(t9.countLeaves());
    }
 }

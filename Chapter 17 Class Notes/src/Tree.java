@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
     A tree in which each node has an arbitrary number of children.
@@ -6,11 +7,11 @@ import java.util.*;
 public class Tree
 {
     private Node root;
-
+    
     static class Node
     {
-        public List<Node> children;
         public Object data;
+        public List<Node> children;
 
         /**
             Computes the size of the subtree whose root is this node.
@@ -19,8 +20,7 @@ public class Tree
         public int size()
         {
             int total = 1;
-            for(Node child: this.children)
-            {
+            for (Node child: this.children) {
                 total += child.size();
             }
             return total;
@@ -52,8 +52,75 @@ public class Tree
     */
     public int size() 
     {
-        return root.size();
+        return this.root.size();
     }
 
     // Additional methods will be added in later sections.
+
+    /*
+     * A visitor whose visit method is called for each
+     * visited node during a tree traversal
+     */
+    public interface Visitor {
+        /*
+         * The visit method is called for each visited node.
+         * @param data: The data of the node being visited
+         */
+        void visit(Object data);
+        
+    }
+
+    /*
+     * Traverse this tree in preorder.
+     * @param v: The visitor to be invoked on each node.
+     */
+    public void preorder(Visitor v) {
+        Tree.preorder(this.root, v);
+    }
+
+    /*
+     * Traverse the tree with a given root in preorder.
+     * @param n: The root of the tree to traverse.
+     * @param v: The visitor to be invoked on each node.
+     */
+    private static void preorder(Node n, Visitor v) {
+        if (n == null) {
+            return;
+        }
+
+        v.visit(n.data);
+
+        for (Node child: n.children) {
+            Tree.preorder(child, v);
+        }
+
+    }
+
+    
+
+    /*
+     * Traverse this tree in postorder.
+     * @param v: The visitor to be invoked on each node.
+     */
+    public void postorder(Visitor v) {
+        if(this.root != null)
+            Tree.postorder(this.root, v);
+    }
+
+    /*
+     * Traverse the tree with a given root in postorder.
+     * @param n: The root of the tree to traverse.
+     * @param v: The visitor to be invoked on each node.
+     */
+    private static void postorder(Node n, Visitor v) {
+        if(n!= null){
+            for(Node c: n.children){
+                postorder(c, v);
+            }
+        }
+        v.visit(n.data);
+
+    }
+
+    
 }

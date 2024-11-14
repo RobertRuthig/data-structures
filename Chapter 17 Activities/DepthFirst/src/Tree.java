@@ -1,5 +1,5 @@
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
     Add a method void depthFirst(Visitor v) to the Tree class of
@@ -33,6 +33,34 @@ public class Tree
     public Tree()
     {
         root = null;
+    }
+    
+    /*
+     * Traverse this tree in preorder.
+     * @param v: The visitor to be invoked on each node.
+     */
+    public void depthFirst(Visitor v) {
+        Tree.depthFirst(this.root, v);
+    }
+
+    /*
+     * Traverse the tree with a given root in preorder.
+     * @param n: The root of the tree to traverse.
+     * @param v: The visitor to be invoked on each node.
+     */
+    private static boolean depthFirst(Node n, Visitor v) {
+        if (n == null) {
+            return true;
+        }
+        if(v.visit(n.data) == false)
+        {
+            return false;
+        }
+        for (Node child: n.children) {
+            if(Tree.depthFirst(child, v ) == false)
+                return false;
+        }
+        return true;
     }
 
     /**

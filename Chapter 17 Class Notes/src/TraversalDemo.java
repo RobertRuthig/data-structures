@@ -15,8 +15,8 @@ public class TraversalDemo
         Tree t4 = new Tree("Savannah");
         t2.addSubtree(t4);
 
-        // Count short names with visitor
-        /*class ShortNameCounter implements Tree.Visitor
+        Count short names with visitor
+        class ShortNameCounter implements Tree.Visitor
         {
             public int counter = 0;
             public void visit(Object data)
